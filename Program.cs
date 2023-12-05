@@ -29,14 +29,16 @@ class Program
         int numberOfAttempts = 0;
         int correctLetter = 0;
         Console.WriteLine("\nPlease enter a letter\n");
-       
+
 
         //Replace Dash with letter
-        foreach (char item in wordToGuess)
+        for (int y = 0; y < wordLength; y++)
         {
+            userGuess[y] = PLACEHOLDER;
             Console.Write($"{PLACEHOLDER} ");
         }
-            Console.WriteLine("\n");
+
+        Console.WriteLine("\n");
 
         while (numberOfAttempts < NUMBER_OF_GUESSES)
         {
@@ -49,7 +51,7 @@ class Program
                     userGuess[x] = letterGuess;
                     Console.WriteLine(userGuess);
                     correctLetter++;
-                }
+                }   
             }
 
             if (numberOfAttempts == NUMBER_OF_GUESSES)
