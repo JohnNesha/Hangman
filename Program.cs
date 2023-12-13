@@ -43,9 +43,9 @@ class Program
 
         while (numberOfAttempts < NUMBER_OF_GUESSES)
         {
-            numberOfAttempts++;
             char letterGuess = Console.ReadLine()[0];
             lettersAlreadyGuessed.Add(letterGuess);
+
             for (int x = 0; x < wordLength; x++)
             {
                 if (letterGuess == wordToGuess[x])
@@ -55,12 +55,7 @@ class Program
                     correctLetter++;
                 }   
             }
-
-            if (numberOfAttempts == NUMBER_OF_GUESSES)
-            {
-                Console.WriteLine("You've reached the max number of attempts. Game over.");
-            }
-
+            //Checks for dashes 
             if (userGuess.Contains(PLACEHOLDER))
             {
                 Console.WriteLine("Guess another letter");
@@ -70,6 +65,17 @@ class Program
             {
                 Console.WriteLine("You guessed the mystery word. You won!");
             }
+
+            //If user guesses incorrect letter 
+            if (!wordToGuess.Contains(letterGuess))
+            {
+                numberOfAttempts++;
+            }
+        }
+
+        if (numberOfAttempts == NUMBER_OF_GUESSES)
+        {
+            Console.WriteLine("You've reached the max number of attempts. Game over.");
         }
 
     }
