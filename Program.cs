@@ -8,6 +8,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Let's play Hangman! Guess the letters to complete the word!\n");
+        Console.WriteLine($"You have {NUMBER_OF_GUESSES} chances to guess the word. Let's begin!\n");
 
         //List for possible word
         List<String> wordList = new List<string>()
@@ -46,6 +47,14 @@ class Program
             char letterGuess = Console.ReadLine()[0];
             lettersAlreadyGuessed.Add(letterGuess);
 
+            Console.WriteLine($"These are the letters you have guessed: ");
+            foreach (char item in lettersAlreadyGuessed)
+            {
+                Console.Write(item);
+            }
+
+            Console.WriteLine("\n");
+
             for (int x = 0; x < wordLength; x++)
             {
                 if (letterGuess == wordToGuess[x])
@@ -58,24 +67,25 @@ class Program
             //Checks for dashes 
             if (userGuess.Contains(PLACEHOLDER))
             {
-                Console.WriteLine("Guess another letter");
+                Console.WriteLine("\nGuess another letter\n");
             }
 
             else
             {
                 Console.WriteLine("You guessed the mystery word. You won!");
             }
-
             //If user guesses incorrect letter 
             if (!wordToGuess.Contains(letterGuess))
             {
                 numberOfAttempts++;
+                Console.WriteLine($"Guesses you have remaining: " + (NUMBER_OF_GUESSES - numberOfAttempts));
             }
         }
 
         if (numberOfAttempts == NUMBER_OF_GUESSES)
         {
             Console.WriteLine("You've reached the max number of attempts. Game over.");
+            Console.WriteLine($"The secret word was {wordToGuess}");
         }
 
     }
