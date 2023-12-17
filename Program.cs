@@ -57,12 +57,15 @@ class Program
 
             for (int x = 0; x < wordLength; x++)
             {
-                if (letterGuess == wordToGuess[x])
+                if (wordToGuess.Contains(letterGuess))
                 {
-                    userGuess[x] = letterGuess;
-                    Console.WriteLine(userGuess);
+                    Console.Write(letterGuess);
                     correctLetter++;
-                }   
+                }
+                else
+                {
+                    Console.Write(PLACEHOLDER + " ");
+                }
             }
             //Checks for dashes 
             if (userGuess.Contains(PLACEHOLDER))
