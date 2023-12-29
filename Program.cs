@@ -48,25 +48,28 @@ class Program
             lettersAlreadyGuessed.Add(letterGuess);
 
             Console.WriteLine($"These are the letters you have guessed: ");
+            //Output for all letters guessed
             foreach (char item in lettersAlreadyGuessed)
             {
                 Console.Write(item);
             }
 
             Console.WriteLine("\n");
-
-            for (int x = 0; x < wordLength; x++)
+            //Check if letter is in word
+            if (wordToGuess.Contains(letterGuess))
             {
-                if (wordToGuess.Contains(letterGuess))
+                for (int x = 0; x < wordLength; x++)
                 {
-                    Console.Write(letterGuess);
                     correctLetter++;
+
+                    if (wordToGuess[x] == letterGuess)
+                    {
+                        userGuess[x] = letterGuess;
+                    }
                 }
-                else
-                {
-                    Console.Write(PLACEHOLDER + " ");
-                }
+                Console.WriteLine(userGuess);
             }
+            
             //Checks for dashes 
             if (userGuess.Contains(PLACEHOLDER))
             {
