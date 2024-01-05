@@ -69,7 +69,7 @@ class Program
                 }
                 Console.WriteLine(userGuess);
             }
-            
+
             //Checks for dashes 
             if (userGuess.Contains(PLACEHOLDER))
             {
@@ -78,8 +78,9 @@ class Program
 
             else
             {
-                Console.WriteLine("You guessed the mystery word. You won!");
+                Console.WriteLine("\nYou guessed the mystery word. You won!");
             }
+           
             //If user guesses incorrect letter 
             if (!wordToGuess.Contains(letterGuess))
             {
@@ -90,10 +91,11 @@ class Program
 
         if (numberOfAttempts == NUMBER_OF_GUESSES)
         {
-            Console.WriteLine("You've reached the max number of attempts. Game over.");
+            Console.WriteLine("\nYou've reached the max number of attempts. Game over.\n");
             Console.WriteLine($"The secret word was {wordToGuess}");
         }
 
+        Console.ReadKey();
     }
 
 }
