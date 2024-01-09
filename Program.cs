@@ -28,7 +28,6 @@ class Program
         //Ask user for letter guess
         char[] userGuess = new char[wordLength];
         int numberOfAttempts = 0;
-        int correctLetter = 0;
         List<char> lettersAlreadyGuessed = new List<char>();
         Console.WriteLine("\nPlease enter a letter\n");
 
@@ -60,8 +59,6 @@ class Program
             {
                 for (int x = 0; x < wordLength; x++)
                 {
-                    correctLetter++;
-
                     if (wordToGuess[x] == letterGuess)
                     {
                         userGuess[x] = letterGuess;
@@ -79,6 +76,7 @@ class Program
             else
             {
                 Console.WriteLine("\nYou guessed the mystery word. You won!");
+                break;
             }
            
             //If user guesses incorrect letter 
@@ -88,7 +86,7 @@ class Program
                 Console.WriteLine($"Guesses you have remaining: " + (NUMBER_OF_GUESSES - numberOfAttempts));
             }
         }
-
+        //If user reaches the max number of attempts 
         if (numberOfAttempts == NUMBER_OF_GUESSES)
         {
             Console.WriteLine("\nYou've reached the max number of attempts. Game over.\n");
