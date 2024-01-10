@@ -77,7 +77,6 @@ class Program
             {
                 Console.WriteLine("\nGuess another letter\n");
             }
-
             else
             {
                 Console.WriteLine("\nYou guessed the mystery word. You won!");
