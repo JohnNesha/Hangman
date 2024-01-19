@@ -15,7 +15,6 @@ class Program
             {
                 "coffee", "giraffe", "building", "mannequin", "jackhammer"
             };
-
         //Get random entry from List
         Random rand = new Random();
         int index = rand.Next(wordList.Count);
@@ -31,29 +30,35 @@ class Program
         List<char> lettersAlreadyGuessed = new List<char>();
         Console.WriteLine("\nPlease enter a letter\n");
 
-
         //Replace Dash with letter
         for (int y = 0; y < wordLength; y++)
         {
             userGuess[y] = PLACEHOLDER;
             Console.Write($"{PLACEHOLDER} ");
         }
-
         Console.WriteLine("\n");
 
         while (numberOfAttempts < NUMBER_OF_GUESSES)
         {
             char letterGuess = Console.ReadLine()[0];
-            lettersAlreadyGuessed.Add(letterGuess);
 
+            //If users enters Null value such as hitting enter without enter letter
+            if (letterGuess.Equals(null))
+            {
+                Console.WriteLine("You have entered an invalid character. Please enter a letter");
+            }
+            else
+            {
+                lettersAlreadyGuessed.Add(letterGuess);
+            }
             Console.WriteLine($"These are the letters you have guessed: ");
             //Output for all letters guessed
             foreach (char item in lettersAlreadyGuessed)
             {
                 Console.Write(item);
             }
-
             Console.WriteLine("\n");
+
             //Check if letter is in word
             if (wordToGuess.Contains(letterGuess))
             {
@@ -92,5 +97,4 @@ class Program
 
         Console.ReadKey();
     }
-
 }
