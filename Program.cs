@@ -40,17 +40,21 @@ class Program
 
         while (numberOfAttempts < NUMBER_OF_GUESSES)
         {
-            char letterGuess = Console.ReadKey().KeyChar;
+
 
             //If users enters Null value such as hitting enter without enter letter
-            if (letterGuess == '\0')
-            {
-                Console.WriteLine("You have entered an invalid character. Please enter a letter");
-            }
-            else
-            {
+            bool invalidChar;
+            char letterGuess = Console.ReadKey().KeyChar;
+            invalidChar = Char.IsLetter(letterGuess);
+            Console.WriteLine("You have entered an invalid character. Please enter a letter\n");
+    
+            
+           {
                 lettersAlreadyGuessed.Add(letterGuess);
-            }
+           }
+
+            continue;
+
             Console.WriteLine($"These are the letters you have guessed: ");
             //Output for all letters guessed
             foreach (char item in lettersAlreadyGuessed)
