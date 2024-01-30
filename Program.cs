@@ -46,15 +46,18 @@ class Program
             bool invalidChar;
             char letterGuess = Console.ReadKey().KeyChar;
             invalidChar = Char.IsLetter(letterGuess);
-            Console.WriteLine("You have entered an invalid character. Please enter a letter\n");
-    
-            
-           {
+
+            if (!invalidChar)
+            {
+                Console.WriteLine("You have entered an invalid character. Please enter a letter\n");
+                continue;
+            }
+
+            else
+            {
                 lettersAlreadyGuessed.Add(letterGuess);
-           }
-
-            continue;
-
+            }
+            Console.WriteLine("\n");
             Console.WriteLine($"These are the letters you have guessed: ");
             //Output for all letters guessed
             foreach (char item in lettersAlreadyGuessed)
@@ -98,7 +101,6 @@ class Program
             Console.WriteLine("\nYou've reached the max number of attempts. Game over.\n");
             Console.WriteLine($"The secret word was {wordToGuess}");
         }
-
-        Console.ReadKey();
+        Console.ReadKey(); 
     }
 }
