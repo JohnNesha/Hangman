@@ -40,8 +40,6 @@ class Program
 
         while (numberOfAttempts < NUMBER_OF_GUESSES)
         {
-
-
             //If users enters Null value such as hitting enter without enter letter
             bool invalidChar;
             char letterGuess = Console.ReadKey().KeyChar;
